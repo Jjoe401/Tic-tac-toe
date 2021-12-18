@@ -1,0 +1,368 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-blue: #3399FF;
+  --color-red: #FF5F58;
+  --text-color: #333;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Brandon Grotesque Black', sans-serif;
+}
+
+.row {
+  max-width: 144rem;
+  width: 92%;
+  margin: 0 auto;
+}
+
+main {
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.welcome-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.welcome-page .game-name {
+  font-size: 500%;
+  margin-bottom: 3.2rem;
+}
+
+.welcome-page p {
+  font-size: 110%;
+  color: var(--text-color);
+  font-family: "Brandon Grotesque Medium", sans-serif;
+  margin-bottom: 3.2rem;
+}
+
+.top-nav {
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.game-name span {
+  display: block;
+  text-transform: uppercase;
+  line-height: 100%;
+}
+
+.game-name .game-name--tic {
+  color: var(--color-blue);
+}
+
+.game-name .game-name--tac {
+  color: var(--color-red);
+}
+
+.game-name .game-name--toe {
+  color: var(--text-color);
+}
+
+.main-game {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.main-game .players {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 4rem;
+  margin-bottom: 4rem;
+}
+
+.main-game .players--red {
+  color: var(--color-red);
+}
+
+.main-game .players--blue {
+  color: var(--color-blue);
+}
+
+.main-game .players--blue, .main-game .players--red {
+  font-size: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.players-scores {
+  margin-top: 3.2rem;
+  font-size: 3.2rem;
+}
+
+.game-grid {
+  display: table;
+  border-spacing: unset;
+}
+
+.column {
+  height: 12rem;
+  width: 12rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px rgba(51, 51, 51, 0.55);
+  cursor: pointer;
+}
+
+.first-row .column {
+  border-top: none;
+  border-bottom: none;
+}
+
+.second-row .column, .third-row .column {
+  border-bottom: none;
+}
+
+.column-1 {
+  border-right: none;
+  border-left: none;
+}
+
+.column-2, .column-3 {
+  border-right: none;
+}
+
+.players-marque {
+  font-size: 290%;
+  z-index: 0;
+}
+
+.players--red, .players--blue {
+  transition: all .3s;
+  transform: scale(1.5);
+}
+
+.red-ellipse {
+  color: var(--color-red);
+}
+
+.blue-cross {
+  color: var(--color-blue);
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  transition: all .3s;
+  transform: scale(1);
+}
+
+.winner-popup {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: grayscale(100%) brightness(60%) blur(1px);
+  transition: all .5s ease-in-out;
+}
+
+.wrapper {
+  height: 50%;
+  width: 40%;
+  min-width: 30rem;
+  background-color: white;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper span {
+  font-size: 260%;
+}
+
+.wrapper .winners-name-box {
+  margin-bottom: 3.2rem;
+}
+
+button {
+  height: 4.8rem;
+  width: max-content;
+  padding: 0 3.2rem;
+  font-family: "Brandon Grotesque Medium", sans-serif;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:nth-child(1) {
+  margin-right: 2.4rem;
+}
+
+.primary-button {
+  border: none;
+  color: white;
+}
+
+.primary-button--blue {
+  background-color: #3399FF;
+}
+
+.primary-button--red {
+  background-color: #FF5F58;
+}
+
+.secondary-button {
+  background-color: transparent;
+}
+
+.secondary-button--red {
+  border: 1px solid #FF5F58;
+  color: #FF5F58;
+}
+
+.secondary-button--blue {
+  border: 1px solid #3399FF;
+  color: #3399FF;
+}
+
+.hidden-popup {
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.red-won {
+  color: var(--color-red);
+}
+
+.blue-won {
+  color: var(--color-blue);
+}
+
+.draw {
+  color: var(--text-color);
+}
+
+#main-App {
+  display: block;
+  animation: appear 0.8s ease-in forwards;
+}
+
+.hidden-main-App {
+  display: none;
+}
+
+.vanish {
+  animation: vanish 0.8s ease-in forwards;
+}
+
+@keyframes vanish {
+  0% {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(-120%);
+    filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: translateX(120%);
+    filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    transform: translateX(0);
+    filter: blur(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .column {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  .players-marque {
+    font-size: 190%;
+    z-index: 0;
+  }
+
+  .main-game .players--blue, .main-game .players--red {
+    font-size: 1.6rem;
+  }
+
+  .players--red, .players--blue {
+    transition: all .3s;
+    transform: scale(1.1);
+  }
+
+  .main-game .players {
+    padding: 2rem;
+  }
+
+  .top-nav {
+    padding: 2rem;
+  }
+
+  .wrapper {
+    padding: 2rem;
+  }
+
+  .wrapper span {
+    font-size: 200%;
+  }
+
+  .button-box button {
+    padding: 0 1.4rem;
+  }
+
+  .winners-name-box {
+    text-align: center;
+  }
+
+  .wrapper span {
+    font-size: 200%;
+  }
+
+}

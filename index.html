@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/line-awesome.css" rel="stylesheet">
+  <script defer src="script/start.js"></script>
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+<template id="ellipse-template">
+  <i class="la la-circle-o red-ellipse players-marque"></i>
+</template>
+
+<template id="cross-template">
+  <i class="las la-times blue-cross players-marque"></i>
+</template>
+<main>
+  <div class="winner-popup hidden-popup" id="winner-popup">
+    <div class="wrapper">
+      <div class="winners-name-box">
+        <span id="winner-name"></span>
+        <span class="winner">
+                    WON
+                </span>
+      </div>
+
+      <div class="button-box">
+        <button class="secondary-button secondary-button--red" id="quit-btn">leave victoriously</button>
+        <button class="primary-button primary-button--blue" id="revenge-btn">revenge!</button>
+      </div>
+    </div>
+  </div>
+  <div class="welcome-page">
+    <div class="game-name">
+      <span class="game-name--tic">Tic</span>
+      <span class="game-name--tac">Tac</span>
+      <span class="game-name--toe">Toe</span>
+    </div>
+    <p>Simple Tic Tac Toe game to have some fun</p>
+
+    <button class="primary-button primary-button--blue" id="play-button">
+      <i class="la la-play"></i>
+      Play
+    </button>
+
+    <details>
+      <summary>Rules</summary>
+    </details>
+  </div>
+  <div class="row hidden-main-App" id="main-App">
+    <nav class="top-nav">
+      <div class="game-name">
+        <span class="game-name--tic">Tic</span>
+        <span class="game-name--tac">Tac</span>
+        <span class="game-name--toe">Toe</span>
+      </div>
+    </nav>
+
+    <div class="main-game">
+      <div class="players">
+        <div class="players--red">
+                        <span class="players--red-name">
+                            RED
+                        </span>
+          <span class="players-scores" id="players--red-scores"></span>
+        </div>
+
+        <div class="players--blue">
+                        <span class="players--blue-name">
+                            BLUE
+                        </span>
+          <span class="players-scores" id="players--blue-scores"></span>
+        </div>
+      </div>
+
+      <table class="game-grid" id="game-grid">
+        <tr class="first-row game-grid--row">
+          <td class="column column-1"></td>
+          <td class="column column-2"></td>
+          <td class="column column-3"></td>
+        </tr>
+
+        <tr class="second-row game-grid--row">
+          <td class="column column-1"></td>
+          <td class="column column-2"></td>
+          <td class="column column-3"></td>
+        </tr>
+
+        <tr class="third-row game-grid--row">
+          <td class="column column-1"></td>
+          <td class="column column-2"></td>
+          <td class="column column-3"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</main>
+</body>
+</html>
