@@ -102,10 +102,6 @@ function hasWinner() {
       hasWinner = true;
       break;
     }
-
-    if (!board.includes('')) {
-      return false;
-    }
   }
   return hasWinner;
 }
@@ -172,7 +168,7 @@ function returnWinner() {
   } else if (hasWinner() && turn === 'blue' && !gameState()) {
     winner = 'red';
   }
-  if (!hasWinner() && !board.includes('')) {
+  if (!hasWinner()) {
     winner = 'draw';
   }
   return winner;
@@ -232,7 +228,7 @@ function showWinner() {
     reactivateRevengeAndLeaveBtn();
   } else if (!board.includes('') && returnWinner() === 'draw') {
     document.getElementById("winner-popup").classList.remove('hidden-popup');
-    winnerName.textContent = "a DRAW, no one";
+    winnerName.textContent = "TIE, no one";
     winnerName.className = 'draw';
     setScore('draw');
     disableRevengeAndLeaveBtn();

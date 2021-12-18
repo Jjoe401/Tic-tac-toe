@@ -14,14 +14,25 @@ html {
   font-size: 62.5%;
 }
 
+@font-face {
+  font-family: "Brandon Grotesque Black";
+  src: url("../fonts/Brandon_blk.otf");
+}
+
+@font-face {
+  font-family: "Brandon Grotesque Medium";
+  src: url("../fonts/Brandon_med.otf");
+;
+}
+
 body {
   font-size: 1.6rem;
-  font-family: 'Brandon Grotesque Black', sans-serif;
+  font-family: "Brandon Grotesque Black", sans-serif;
 }
 
 .row {
   max-width: 144rem;
-  width: 92%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -207,6 +218,7 @@ main {
 
 .wrapper .winners-name-box {
   margin-bottom: 3.2rem;
+  text-align: center;
 }
 
 button {
@@ -269,6 +281,31 @@ button:nth-child(1) {
 
 .draw {
   color: var(--text-color);
+}
+
+.rules-box {
+  width: 28%;
+  min-width: 32rem;
+  margin-top: 3.2rem;
+  font-family: Arial, sans-serif;
+}
+
+.simple-paragraph {
+  margin-top: 1.6rem;
+  line-height: 160%;
+  font-family: Arial, sans-serif !important;
+  font-size: 1.5rem !important;
+}
+
+.rules-headings {
+  color: var(--color-blue);
+  margin-bottom: 1.6rem;
+}
+
+.rules-list-item {
+  line-height: 160%;
+  font-size: 1.5rem !important;
+  margin-bottom: 1.6rem;
 }
 
 #main-App {
@@ -365,4 +402,23 @@ button:nth-child(1) {
     font-size: 200%;
   }
 
+}
+
+@media only screen and (max-height: 700px) {
+  .column {
+    height: 7.5rem;
+    width: 7.5rem;
+  }
+
+  .top-nav {
+    padding: 2rem;
+  }
+
+  .main-game .players {
+    margin-bottom: 0;
+  }
+
+  .main-game .players--blue, .main-game .players--red {
+    font-size: 1.4rem;
+  }
 }
